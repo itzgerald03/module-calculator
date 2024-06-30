@@ -188,7 +188,7 @@ function AssessmentManager() {
                     type="text"
                     value={newAssessment.name}
                     onChange={(e) => setNewAssessment({ ...newAssessment, name: e.target.value })}
-                    placeholder="New Assessment Name"
+                    placeholder="CA1"
                   />
                 </td>
                 <td className="px-4 py-2">
