@@ -51,6 +51,7 @@ function AssessmentManager() {
     setEditingAssessment(null);
   };
 
+  // Handler to delete an assessment
   const handleDeleteAssessment = (id) => {
     // Filter out the assessment to delete
     const updatedAssessments = assessments.filter((a) => a.id !== id);
@@ -59,6 +60,7 @@ function AssessmentManager() {
     // Update localStorage
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(updatedAssessments));
   };
+
   // Function to calculate final grade
   const calculateFinalGrade = () => {
     const weightedScores = assessments.map((assessment) => assessment.score * (assessment.weightage / 100));
@@ -232,6 +234,90 @@ function AssessmentManager() {
         <div className="flex items-center gap-4">
           <div className="text-4xl font-bold">{finalGrade}</div>
           <div className="text-4xl font-bold">{finalScore.toFixed(2)}%</div>
+        </div>
+      </div>
+      
+      <div className="mt-6">
+        <h3 className="text-xl font-bold">Grading System</h3>
+        <div className="overflow-x-auto">
+        <table className="w-full table-fixed mt-3">
+            <thead>
+              <tr className="bg-gray-200 text-muted-foreground">
+                <th className="px-4 py-2 text-left">Final Grade</th>
+                <th className="px-4 py-2 text-left">Required Score (%)</th>
+                <th className="px-4 py-2 text-left">Description</th>
+                <th className="px-4 py-2 text-left">Grade Point</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-b border-muted/20 hover:bg-gray-100 transition-colors duration-200">
+                <td className="px-4 py-2">DIST</td>
+                <td className="px-4 py-2">Distinction (to be awarded by the Examinations Board)</td>
+                <td className="px-4 py-2">80% - 100%</td>
+                <td className="px-4 py-2">4.0</td>
+              </tr>
+              <tr className="border-b border-muted/20 hover:bg-gray-100 transition-colors duration-200">
+                <td className="px-4 py-2">A</td>
+                <td className="px-4 py-2">Excellent</td>
+                <td className="px-4 py-2">80% - 100%</td>
+                <td className="px-4 py-2">4.0</td>
+              </tr>
+              <tr className="border-b border-muted/20 hover:bg-gray-100 transition-colors duration-200">
+                <td className="px-4 py-2">B+</td>
+                <td className="px-4 py-2">Very Good</td>
+                <td className="px-4 py-2">75% - 79%</td>
+                <td className="px-4 py-2">3.5</td>
+              </tr>
+              <tr className="border-b border-muted/20 hover:bg-gray-100 transition-colors duration-200">
+                <td className="px-4 py-2">B</td>
+                <td className="px-4 py-2">Good</td>
+                <td className="px-4 py-2">70% - 74%</td>
+                <td className="px-4 py-2">3.0</td>
+              </tr>
+              <tr className="border-b border-muted/20 hover:bg-gray-100 transition-colors duration-200">
+                <td className="px-4 py-2">C+</td>
+                <td className="px-4 py-2">Good Credit</td>
+                <td className="px-4 py-2">65% - 69%</td>
+                <td className="px-4 py-2">2.5</td>
+              </tr>
+              <tr className="border-b border-muted/20 hover:bg-gray-100 transition-colors duration-200">
+                <td className="px-4 py-2">C</td>
+                <td className="px-4 py-2">Credit</td>
+                <td className="px-4 py-2">60% - 64%</td>
+                <td className="px-4 py-2">2.0</td>
+              </tr>
+              <tr className="border-b border-muted/20 hover:bg-gray-100 transition-colors duration-200">
+                <td className="px-4 py-2">D+</td>
+                <td className="px-4 py-2">Good Pass</td>
+                <td className="px-4 py-2">55% - 59%</td>
+                <td className="px-4 py-2">1.5</td>
+              </tr>
+              <tr className="border-b border-muted/20 hover:bg-gray-100 transition-colors duration-200">
+                <td className="px-4 py-2">D</td>
+                <td className="px-4 py-2">Pass</td>
+                <td className="px-4 py-2">50% - 54%</td>
+                <td className="px-4 py-2">1.0</td>
+              </tr>
+              <tr className="border-b border-muted/20 hover:bg-gray-100 transition-colors duration-200">
+                <td className="px-4 py-2">D-</td>
+                <td className="px-4 py-2">Subsidiary Pass</td>
+                <td className="px-4 py-2">-</td>
+                <td className="px-4 py-2">0.5</td>
+              </tr>
+              <tr className="border-b border-muted/20 hover:bg-gray-100 transition-colors duration-200">
+                <td className="px-4 py-2">P</td>
+                <td className="px-4 py-2">Non-Graded Pass</td>
+                <td className="px-4 py-2">-</td>
+                <td className="px-4 py-2">0.5</td>
+              </tr>
+              <tr className="border-b border-muted/20 hover:bg-gray-100 transition-colors duration-200">
+                <td className="px-4 py-2">F</td>
+                <td className="px-4 py-2">Fail</td>
+                <td className="px-4 py-2">-</td>
+                <td className="px-4 py-2">0.0</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
