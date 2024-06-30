@@ -61,7 +61,6 @@ function AssessmentManager() {
   };
   // Function to calculate final grade
   const calculateFinalGrade = () => {
-    const totalWeightage = assessments.reduce((acc, assessment) => acc + assessment.weightage, 0);
     const weightedScores = assessments.map((assessment) => assessment.score * (assessment.weightage / 100));
     const finalScore = weightedScores.reduce((acc, score) => acc + score, 0);
     let finalGrade;
